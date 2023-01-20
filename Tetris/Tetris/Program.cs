@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-Console.WriteLine("Tetris!!!");
-=======
 ﻿namespace Tetris
 {
     class Program
@@ -26,4 +21,3 @@ Console.WriteLine("Tetris!!!");
         }
     }
 }
->>>>>>> Stashed changes
