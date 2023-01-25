@@ -9,57 +9,101 @@
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Figure[] f = new Figure[2];
-            f[0] = new Stick(7, 5, 'o');
-            //f[1] = new Stick(1, 1, '*');
+            FigureGenerator generator = new FigureGenerator(20, 0, 'O');
+            Figure s;
 
-            f[0].Draw();
+            while (true)
+            {                
+                FigureFall(out s, generator);
+                s.Draw();
+            }
+            static void FigureFall(out Figure fig, FigureGenerator generator)
+            {                
+                fig = generator.GetNewFigure();
+                fig.Draw();
 
+                for (int i=0; i<15; i++)
+                {
+                    fig.Hide();
+                    fig.Move(Direction.DOWN);
+                    fig.Draw();
+                    Thread.Sleep(200); 
+
+                }
+            }
+
+
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
-
+            s.Hide();
+                       
+            s.Move(Direction.DOWN);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Rotate();
-            f[0].Draw();
+            s.Hide();
 
+            s.Move(Direction.DOWN);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
+            s.Hide();
 
+            s.Move(Direction.DOWN);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
+            s.Hide();
 
+            s.Move(Direction.DOWN);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
+            
 
-            Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Rotate();
-            f[0].Draw();
+            s = generator.GetNewFigure();
 
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
+            s.Hide();
 
+            s.Move(Direction.RIGHT);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
+            s.Hide();
+            s.Move(Direction.RIGHT);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
+            s.Move(Direction.RIGHT);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
+            s.Move(Direction.RIGHT);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
 
+            s.Move(Direction.DOWN);
+            s.Draw();
             Thread.Sleep(500);
-            f[0].Hide();
-            f[0].Move(Direction.DOWN);
-            f[0].Draw();
-            Console.ReadLine();
+            s.Hide();
+
+            s.Move(Direction.DOWN);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
+
+            s.Move(Direction.DOWN);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
+
+            s.Move(Direction.DOWN);
+            s.Draw();
+            Thread.Sleep(500);
+            s.Hide();
+
+            s.Move(Direction.DOWN);
+            s.Draw();
+            Thread.Sleep(500);
+            
         }
     }
 }
