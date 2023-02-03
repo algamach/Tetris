@@ -11,10 +11,14 @@ namespace Tetris
         public int x;
         public int y;
         public char c;
+
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.WriteLine(c);
+            Console.SetCursorPosition(0 ,0);
+
         }
         internal void Hide()
         {
@@ -27,6 +31,9 @@ namespace Tetris
             {
                 case Direction.DOWN:
                     y += 1;
+                    break;
+                case Direction.UP:
+                    y -= 1;
                     break;
                 case Direction.LEFT:
                     x -= 1;
@@ -44,6 +51,13 @@ namespace Tetris
             x = a;
             y = b;
             c = sym;
+        }
+
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            c = p.c;
         }
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\bin\Debug\net6.0\toTinkOff.exe
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\bin\Debug\net6.0\toTinkOff.deps.json
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\bin\Debug\net6.0\toTinkOff.runtimeconfig.json
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\bin\Debug\net6.0\toTinkOff.dll
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\bin\Debug\net6.0\toTinkOff.pdb
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.csproj.AssemblyReference.cache
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.AssemblyInfoInputs.cache
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.AssemblyInfo.cs
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.csproj.CoreCompileInputs.cache
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.dll
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\refint\toTinkOff.dll
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.pdb
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\toTinkOff.genruntimeconfig.cache
+C:\Users\f-gal\OneDrive\Документы\GitHub\Tetris\toTinkOff\toTinkOff\obj\Debug\net6.0\ref\toTinkOff.dll
