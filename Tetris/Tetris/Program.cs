@@ -8,7 +8,7 @@
             Console.SetBufferSize(40, 30);
 
             FigureGenerator generator = new FigureGenerator(20, 0, 'O');
-            Figure currentFigure =new  Square(20, 0, '*');//generator.GetNewFigure();
+            Figure currentFigure = generator.GetNewFigure();
 
             while (true)
             {            
@@ -27,19 +27,15 @@
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
-                    currentFigure.TryMove(Direction.LEFT);
+                    currentFigure.Move(Direction.LEFT);
                     break;
 
                 case ConsoleKey.RightArrow:
-                    currentFigure.TryMove(Direction.RIGHT);
+                    currentFigure.Move(Direction.RIGHT);
                     break;
 
                 case ConsoleKey.DownArrow:
-                    currentFigure.TryMove(Direction.DOWN);
-                    break;
-
-                case ConsoleKey.UpArrow:
-                    currentFigure.TryMove(Direction.UP);
+                    currentFigure.Move(Direction.DOWN);
                     break;
 
             }
