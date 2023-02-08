@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    internal enum Direction
+    static class Field
     {
-        LEFT, RIGHT, DOWN, UP
+        public const int WIDTH = 40;
+        public const int HEIGHT = 30;
+
     }
 }
