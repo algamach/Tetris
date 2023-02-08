@@ -4,106 +4,49 @@
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Field.WIDTH, Field.HEIGHT);
+            Console.SetBufferSize(Field.WIDTH, Field.HEIGHT);
 
-
-            Console.SetWindowSize(40, 30);
-            Console.SetBufferSize(40, 30);
-
-            FigureGenerator generator = new FigureGenerator(20, 0, 'O');
-            Figure s;
+            FigureGenerator generator = new FigureGenerator(Field.WIDTH/2, 0, 'O');
+            Figure currentFigure = generator.GetNewFigure();
 
             while (true)
-            {                
-                FigureFall(out s, generator);
-                s.Draw();
-            }
-            static void FigureFall(out Figure fig, FigureGenerator generator)
-            {                
-                fig = generator.GetNewFigure();
-                fig.Draw();
-
-                for (int i=0; i<15; i++)
+            {            
+                if (Console.KeyAvailable)
                 {
-                    fig.Hide();
-                    fig.Move(Direction.DOWN);
-                    fig.Draw();
-                    Thread.Sleep(200); 
-
+                    var key = Console.ReadKey();    //ConsoleKeyInfo
+                    HandleHey(currentFigure, key);
                 }
+            }        
+        }
+
+        private static void HandleHey(Figure currentFigure, ConsoleKeyInfo key)
+        {
+            switch (key.Key)
+            {
+                case ConsoleKey.LeftArrow:
+                    currentFigure.TryMove(Direction.LEFT);
+                    break;
+
+                case ConsoleKey.RightArrow:
+                    currentFigure.TryMove(Direction.RIGHT);
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    currentFigure.TryMove(Direction.DOWN);
+                    break;
+
+                case ConsoleKey.UpArrow:
+                    currentFigure.TryMove(Direction.UP);
+                    break;
+
+                case ConsoleKey.Spacebar:
+                    currentFigure.Hide();
+                    currentFigure.TryRotate();
+                    currentFigure.Draw();
+                    break;
+
             }
-
-
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-                       
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            
-
-            s = generator.GetNewFigure();
-
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.RIGHT);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-            s.Move(Direction.RIGHT);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-            s.Move(Direction.RIGHT);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-            s.Move(Direction.RIGHT);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            s.Hide();
-
-            s.Move(Direction.DOWN);
-            s.Draw();
-            Thread.Sleep(500);
-            
         }
     }
 }

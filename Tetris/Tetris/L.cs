@@ -15,40 +15,41 @@ namespace Tetris
             points[1] = new Point(x, y+1 , c);
             points[2] = new Point(x, y+2, c);
             points[3] = new Point(x + 1, y + 2, c);
+            Draw();
         }
-        public override void Rotate()
+        public override void Rotate(Point[] pList)
         {
-            if (points[0].x == points[1].x)
+            if (pList[0].x == pList[1].x)
             {
-                RotateHorisontal();
+                RotateHorisontal(pList);
             }
             else
             {
-                RotateVertical();
+                RotateVertical(pList);
             }
 
         }
 
-        private void RotateVertical()
+        private void RotateVertical(Point[] pList)
         {
-            for (int i = 0; i < points.Length-1; i++)
+            for (int i = 0; i < pList.Length-1; i++)
             {
-                points[i].x = points[0].x;
-                points[i].y = points[0].y + i;
+                pList[i].x = pList[0].x;
+                pList[i].y = pList[0].y + i;
             }
-            points[3].x= points[2].x+1;
-            points[3].y = points[2].y;
+            pList[3].x= pList[2].x+1;
+            pList[3].y = pList[2].y;
         }
 
-        private void RotateHorisontal()
+        private void RotateHorisontal(Point[] pList)
         {
-            for (int i = 0; i < points.Length-1; i++)
+            for (int i = 0; i < pList.Length-1; i++)
             {
-                points[i].y = points[0].y;
-                points[i].x = points[0].x + i;
+                pList[i].y = pList[0].y;
+                pList[i].x = pList[0].x + i;
             }
-            points[3].y = points[2].y-1;
-            points[3].x = points[2].x;
+            pList[3].y = pList[2].y-1;
+            pList[3].x = pList[2].x;
         }
     }
 }
