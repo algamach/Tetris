@@ -4,6 +4,10 @@
     {
         static void Main(string[] args)
         {
+            //что-то новое произошло
+            int check = 1337;
+            int n = check += 23;
+
             Console.SetWindowSize(Field.WIDTH, Field.HEIGHT);
             Console.SetBufferSize(Field.WIDTH, Field.HEIGHT);
 
