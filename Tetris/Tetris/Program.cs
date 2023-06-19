@@ -10,6 +10,7 @@
             Field.SetWidth(20);
 
             FigureGenerator generator = new FigureGenerator(Field.GetWidth()/2, 0, 'O');
+
             Figure currentFigure = generator.GetNewFigure();
 
             while (true)
@@ -18,6 +19,8 @@
                 {
                     var key = Console.ReadKey();    //ConsoleKeyInfo
                     HandleHey(currentFigure, key);
+
+
                 }
             }        
         }
@@ -38,14 +41,15 @@
                     currentFigure.TryMove(Direction.DOWN);
                     break;
 
+
                 case ConsoleKey.UpArrow:
                     currentFigure.TryMove(Direction.UP);
                     break;
 
                 case ConsoleKey.Spacebar:
-                    //currentFigure.Hide();
-                    //currentFigure.TryRotate();
-                    //currentFigure.Draw();
+                    currentFigure.Hide();
+                    currentFigure.TryRotate();
+                    currentFigure.Draw();
 
                     break;
 

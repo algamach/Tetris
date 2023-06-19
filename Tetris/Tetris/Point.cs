@@ -11,6 +11,8 @@ namespace Tetris
         public int x;
         public int y;
         public char c;
+        private Point point;
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
@@ -26,9 +28,6 @@ namespace Tetris
         {
             switch(dir)
             {
-                case Direction.UP:
-                    y -= 1;
-                    break;
                 case Direction.DOWN:
                     y += 1;
                     break;
@@ -38,15 +37,13 @@ namespace Tetris
                 case Direction.RIGHT:
                     x += 1;
                     break;
-
-
             }
-        }
+        } 
         public Point(Point p)
         {
-            x = p.x;
-            y = p.y;
-            c = p.c;
+            x=p.x;
+            y=p.y;
+            c=p.c;
         }
         public Point(int a, int b, char sym)
         {
@@ -54,5 +51,6 @@ namespace Tetris
             y = b;
             c = sym;
         }
+
     }
 }
