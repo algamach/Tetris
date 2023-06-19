@@ -4,14 +4,12 @@
     {
         static void Main(string[] args)
         {
-            //что-то новое произошло
-            int check = 1337;
-            int n = check += 23;
+            Console.SetWindowSize(Field.GetWidth(), Field.HEIGHT);
+            Console.SetBufferSize(Field.GetWidth(), Field.HEIGHT);
 
-            Console.SetWindowSize(Field.WIDTH, Field.HEIGHT);
-            Console.SetBufferSize(Field.WIDTH, Field.HEIGHT);
+            Field.SetWidth(20);
 
-            FigureGenerator generator = new FigureGenerator(Field.WIDTH/2, 0, 'O');
+            FigureGenerator generator = new FigureGenerator(Field.GetWidth()/2, 0, 'O');
             Figure currentFigure = generator.GetNewFigure();
 
             while (true)
@@ -45,9 +43,10 @@
                     break;
 
                 case ConsoleKey.Spacebar:
-                    currentFigure.Hide();
-                    currentFigure.TryRotate();
-                    currentFigure.Draw();
+                    //currentFigure.Hide();
+                    //currentFigure.TryRotate();
+                    //currentFigure.Draw();
+
                     break;
 
             }
