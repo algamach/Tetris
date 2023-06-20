@@ -8,6 +8,8 @@ namespace Tetris
 {
     static class Field
     {
+        private static int _width = 40;
+        private static int _height = 30;
         public static int Width
         {
             get
@@ -21,7 +23,6 @@ namespace Tetris
                 Console.SetBufferSize(_width, _height);
             }
         }
-
         public static int Height
         {
             get
@@ -36,8 +37,26 @@ namespace Tetris
             }
         }
 
-        private static int _width = 40;
-        private static int _height = 30;
+        private static bool[][] _heep;
 
+        static Field()
+        {
+            _heep = new bool[Height][];
+            for (int i = 0; i< Height; i++)
+            {
+                _heep[i] = new bool[Width];
+            }
+        }
+        public static bool CheckStrike(Point p) 
+        {
+            return _heep[p.Y][p.Y];
+        }
+        public static void AddFigure(Figure fig)
+        {
+            foreach(var p in fig.Points)
+            {
+                _heep[p.Y][p.X] = true;
+            }
+        }
     }
 }
