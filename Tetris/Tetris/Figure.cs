@@ -34,7 +34,7 @@ namespace Tetris
             }
             Draw();
         }*/
-        public abstract void Rotate();
+        public abstract void Rotate(Point[] pList);
 
         internal void TryMove(Direction dir)
         {
@@ -73,6 +73,16 @@ namespace Tetris
                 newPonits[i] = new Point(points[i]);
             }
             return newPonits;
+        }
+
+        internal void TryRotate()
+        {
+            Hide();
+            var clone = Clone();
+            Rotate(clone);
+            if (VerifyPosition(clone))
+                points = clone;
+            Draw();
         }
     }
 }

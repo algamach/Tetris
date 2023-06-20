@@ -46,12 +46,11 @@
                     currentFigure.TryMove(Direction.UP);
                     break;
 
-                //case ConsoleKey.Spacebar:
-                    //currentFigure.Hide();
-                   // currentFigure.TryRotate();
-                    //currentFigure.Draw();
-
-                    //break;
+                case ConsoleKey.Spacebar:
+                    currentFigure.Hide();
+                    currentFigure.TryRotate();
+                    currentFigure.Draw();
+                    break;
 
             }
         }
