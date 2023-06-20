@@ -19,7 +19,7 @@ namespace Tetris
         }
         public override void Rotate(Point[] pList)
         {
-            if (pList[0].x == pList[1].x)
+            if (pList[0].X == pList[1].X)
             {
                 RotateHorisontal(pList);
             }
@@ -34,22 +34,22 @@ namespace Tetris
         {
             for (int i = 0; i < pList.Length-1; i++)
             {
-                pList[i].x = pList[0].x;
-                pList[i].y = pList[0].y + i;
+                pList[i].X = pList[0].X;
+                pList[i].Y = pList[0].Y + i;
             }
-            pList[3].x= pList[2].x+1;
-            pList[3].y = pList[2].y;
+            pList[3].X= pList[2].X+1;
+            pList[3].Y = pList[2].Y;
         }
 
         private void RotateHorisontal(Point[] pList)
         {
             for (int i = 0; i < pList.Length-1; i++)
             {
-                pList[i].y = pList[0].y;
-                pList[i].x = pList[0].x + i;
+                pList[i].Y = pList[0].Y;
+                pList[i].X = pList[0].X + i;
             }
-            pList[3].y = pList[2].y-1;
-            pList[3].x = pList[2].x;
+            pList[3].Y = pList[2].Y-1;
+            pList[3].X = pList[2].X;
         }
     }
 }

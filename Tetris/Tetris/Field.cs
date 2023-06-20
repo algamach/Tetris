@@ -17,24 +17,27 @@ namespace Tetris
             set
             {
                 _width = value;
-                Console.SetWindowSize(_width, HEIGHT);
-                Console.SetBufferSize(_width, HEIGHT);
+                Console.SetWindowSize(_width, _height);
+                Console.SetBufferSize(_width, _height);
+            }
+        }
+
+        public static int Height
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                _height = value;
+                Console.SetWindowSize(_width, _height);
+                Console.SetBufferSize(_width, _height);
             }
         }
 
         private static int _width = 40;
-        public const int HEIGHT = 30;
-           
-        public static int GetWidth()
-        {
-            return _width;
-        }
+        private static int _height = 30;
 
-        internal static void SetWidth(int value)
-        {
-            _width = value;
-            Console.SetWindowSize(_width, HEIGHT);
-            Console.SetBufferSize(_width, HEIGHT);
-        }
     }
 }
