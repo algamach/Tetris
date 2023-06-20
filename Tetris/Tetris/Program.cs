@@ -7,8 +7,6 @@
             Console.SetWindowSize(Field.Width, Field.Height);
             Console.SetBufferSize(Field.Width, Field.Height);
 
-            Field.Width = 20;
-
             FigureGenerator generator = new FigureGenerator(Field.Width/2, 0, 'O');
 
             Figure currentFigure = generator.GetNewFigure();
@@ -17,10 +15,9 @@
             {            
                 if (Console.KeyAvailable)
                 {
-                    var key = Console.ReadKey();    //ConsoleKeyInfo
+                    //ConsoleKeyInfo
+                    var key = Console.ReadKey();    
                     HandleHey(currentFigure, key);
-
-
                 }
             }        
         }
