@@ -1,55 +1,60 @@
-﻿namespace Tetris
+﻿using System.Reflection.Emit;
+
+namespace Tetris
 {
     class Program
     {
+        static FigureGenerator generator;
         static void Main(string[] args)
         {
             Console.SetWindowSize(Field.Width, Field.Height);
             Console.SetBufferSize(Field.Width, Field.Height);
 
-            FigureGenerator generator = new FigureGenerator(Field.Width/2, 0, 'O');
-
+            generator = new FigureGenerator(Field.Width/2, 0, 'O');
             Figure currentFigure = generator.GetNewFigure();
 
             while (true)
             {            
                 if (Console.KeyAvailable)
                 {
-                    //ConsoleKeyInfo
-                    var key = Console.ReadKey();    
-                    HandleHey(currentFigure, key);
+                    var key = Console.ReadKey();
+                    var result = HandleKey(currentFigure, key.Key);
+                    ProcessResult(result, ref currentFigure);
                 }
             }        
         }
 
-        private static void HandleHey(Figure currentFigure, ConsoleKeyInfo key)
+        private static bool ProcessResult(Result result, ref Figure currentFigure)
         {
-            switch (key.Key)
+            if (result == Result.HEAP_STRIKE || result == Result.DOWN_BORDER_STRIKE)
+            {
+                Field.AddFigure(currentFigure);
+                currentFigure = generator.GetNewFigure();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private static Result HandleKey(Figure f, ConsoleKey key)
+        {
+            switch (key)
             {
                 case ConsoleKey.LeftArrow:
-                    currentFigure.TryMove(Direction.LEFT);
-                    break;
-
+                    return f.TryMove(Direction.LEFT);
                 case ConsoleKey.RightArrow:
-                    currentFigure.TryMove(Direction.RIGHT);
-                    break;
-
+                    return f.TryMove(Direction.RIGHT);
                 case ConsoleKey.DownArrow:
-                    currentFigure.TryMove(Direction.DOWN);
-                    break;
-
-
+                    return f.TryMove(Direction.DOWN);
+                //UP will need to be removed
                 case ConsoleKey.UpArrow:
-                    currentFigure.TryMove(Direction.UP);
-                    break;
-
+                    return f.TryMove(Direction.UP);
                 case ConsoleKey.Spacebar:
-                    currentFigure.Hide();
-                    currentFigure.TryRotate();
-                    currentFigure.Draw();
-                    break;
-
+                    return f.TryRotate();
             }
+            return Result.SUCCESS;
         }
     }
 }

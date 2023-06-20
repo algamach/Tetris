@@ -49,7 +49,7 @@ namespace Tetris
         }
         public static bool CheckStrike(Point p) 
         {
-            return _heep[p.Y][p.Y];
+            return _heep[p.Y][p.X];
         }
         public static void AddFigure(Figure fig)
         {
