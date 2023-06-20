@@ -34,7 +34,7 @@ namespace Tetris
             }
             Draw();
         }*/
-        public abstract void Rotate();
+        public abstract void Rotate(Point[] pList);
 
         internal void TryMove(Direction dir)
         {
@@ -50,7 +50,7 @@ namespace Tetris
         {
             foreach (var p in pList)
             {
-                if (p.x < 0 || p.y < 0 || p.x >= Field.GetWidth() || p.y >= Field.HEIGHT - 1)
+                if (p.X < 0 || p.Y < 0 || p.X >= Field.Width || p.Y >= Field.Height - 1)
 
                     return false;
             }
@@ -73,6 +73,16 @@ namespace Tetris
                 newPonits[i] = new Point(points[i]);
             }
             return newPonits;
+        }
+
+        internal void TryRotate()
+        {
+            Hide();
+            var clone = Clone();
+            Rotate(clone);
+            if (VerifyPosition(clone))
+                points = clone;
+            Draw();
         }
     }
 }
