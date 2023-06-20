@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(Field.GetWidth(), Field.HEIGHT);
-            Console.SetBufferSize(Field.GetWidth(), Field.HEIGHT);
+            Console.SetWindowSize(Field.Width, Field.HEIGHT);
+            Console.SetBufferSize(Field.Width, Field.HEIGHT);
 
             Field.SetWidth(20);
 
-            FigureGenerator generator = new FigureGenerator(Field.GetWidth()/2, 0, 'O');
+            FigureGenerator generator = new FigureGenerator(Field.Width/2, 0, 'O');
 
             Figure currentFigure = generator.GetNewFigure();
 
@@ -46,12 +46,12 @@
                     currentFigure.TryMove(Direction.UP);
                     break;
 
-                case ConsoleKey.Spacebar:
-                    currentFigure.Hide();
-                    currentFigure.TryRotate();
-                    currentFigure.Draw();
+                //case ConsoleKey.Spacebar:
+                    //currentFigure.Hide();
+                   // currentFigure.TryRotate();
+                    //currentFigure.Draw();
 
-                    break;
+                    //break;
 
             }
         }

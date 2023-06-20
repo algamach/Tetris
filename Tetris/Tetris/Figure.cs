@@ -50,7 +50,7 @@ namespace Tetris
         {
             foreach (var p in pList)
             {
-                if (p.x < 0 || p.y < 0 || p.x >= Field.GetWidth() || p.y >= Field.HEIGHT - 1)
+                if (p.x < 0 || p.y < 0 || p.x >= Field.Width || p.y >= Field.HEIGHT - 1)
 
                     return false;
             }
