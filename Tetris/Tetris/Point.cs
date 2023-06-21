@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tetris
+﻿namespace Tetris
 {
     class Point
     {
-        public int X {  get; set; }
+        public int X { get; set; }
         public int Y { get; set; }
         public char C { get; set; }
 
@@ -27,10 +21,13 @@ namespace Tetris
         }
         internal void Move(Direction dir)
         {
-            switch(dir)
+            switch (dir)
             {
                 case Direction.DOWN:
                     Y += 1;
+                    break;
+                case Direction.UP:
+                    Y -= 1;
                     break;
                 case Direction.LEFT:
                     X -= 1;
@@ -39,12 +36,12 @@ namespace Tetris
                     X += 1;
                     break;
             }
-        } 
+        }
         public Point(Point p)
         {
-            X=p.X;
-            Y=p.Y;
-            C=p.C;
+            X = p.X;
+            Y = p.Y;
+            C = p.C;
         }
         public Point(int a, int b, char sym)
         {

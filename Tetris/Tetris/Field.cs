@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tetris
+﻿namespace Tetris
 {
     static class Field
     {
@@ -42,18 +36,18 @@ namespace Tetris
         static Field()
         {
             _heep = new bool[Height][];
-            for (int i = 0; i< Height; i++)
+            for (int i = 0; i < Height; i++)
             {
                 _heep[i] = new bool[Width];
             }
         }
-        public static bool CheckStrike(Point p) 
+        public static bool CheckStrike(Point p)
         {
             return _heep[p.Y][p.X];
         }
         public static void AddFigure(Figure fig)
         {
-            foreach(var p in fig.Points)
+            foreach (var p in fig.Points)
             {
                 _heep[p.Y][p.X] = true;
             }

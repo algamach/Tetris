@@ -1,6 +1,4 @@
-﻿using System.Reflection.Emit;
-
-namespace Tetris
+﻿namespace Tetris
 {
     class Program
     {
@@ -10,18 +8,18 @@ namespace Tetris
             Console.SetWindowSize(Field.Width, Field.Height);
             Console.SetBufferSize(Field.Width, Field.Height);
 
-            generator = new FigureGenerator(Field.Width/2, 0, 'O');
+            generator = new FigureGenerator(Field.Width / 2, 0, 'O');
             Figure currentFigure = generator.GetNewFigure();
 
             while (true)
-            {            
+            {
                 if (Console.KeyAvailable)
                 {
                     var key = Console.ReadKey();
                     var result = HandleKey(currentFigure, key.Key);
                     ProcessResult(result, ref currentFigure);
                 }
-            }        
+            }
         }
 
         private static bool ProcessResult(Result result, ref Figure currentFigure)

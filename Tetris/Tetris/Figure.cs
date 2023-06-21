@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tetris
+﻿namespace Tetris
 {
     internal abstract class Figure
     {
         const int LENGTH = 4;
         public Point[] Points = new Point[LENGTH];
-       
+
         public void Draw()
         {
             foreach (Point p in Points)
@@ -47,7 +41,7 @@ namespace Tetris
             foreach (var p in newPoints)
             {
                 //in theory it shouldn't be here -1     
-                if (p.Y >= Field.Height-1)
+                if (p.Y >= Field.Height - 1)
                     return Result.DOWN_BORDER_STRIKE;
                 if (p.X >= Field.Width || p.X < 0 || p.Y < 0)
                     return Result.BORDER_STRIKE;
@@ -58,7 +52,7 @@ namespace Tetris
         }
 
         public void Move(Point[] pList, Direction dir)
-        {            
+        {
             foreach (var p in pList)
             {
                 p.Move(dir);
@@ -68,7 +62,7 @@ namespace Tetris
         private Point[] Clone()
         {
             var newPonits = new Point[LENGTH];
-            for (int i = 0; i<LENGTH; i++)
+            for (int i = 0; i < LENGTH; i++)
             {
                 newPonits[i] = new Point(Points[i]);
             }
