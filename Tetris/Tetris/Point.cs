@@ -1,5 +1,4 @@
-﻿namespace Tetris
-{
+﻿namespace Tetris{
     class Point
     {
         public int X { get; set; }
@@ -50,5 +49,4 @@
             C = sym;
         }
 
-    }
-}
+    }}
