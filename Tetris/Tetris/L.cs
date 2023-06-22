@@ -11,39 +11,39 @@
             Points[3] = new Point(x + 1, y + 2, c);
             Draw();
         }
-        public override void Rotate(Point[] pList)
+        public override void Rotate()
         {
-            if (pList[0].X == pList[1].X)
+            if (Points[0].X == Points[1].X)
             {
-                RotateHorisontal(pList);
+                RotateHorisontal();
             }
             else
             {
-                RotateVertical(pList);
+                RotateVertical();
             }
 
         }
 
-        private void RotateVertical(Point[] pList)
+        private void RotateVertical()
         {
-            for (int i = 0; i < pList.Length - 1; i++)
+            for (int i = 0; i < Points.Length - 1; i++)
             {
-                pList[i].X = pList[0].X;
-                pList[i].Y = pList[0].Y + i;
+                Points[i].X = Points[0].X;
+                Points[i].Y = Points[0].Y + i;
             }
-            pList[3].X = pList[2].X + 1;
-            pList[3].Y = pList[2].Y;
+            Points[3].X = Points[2].X + 1;
+            Points[3].Y = Points[2].Y;
         }
 
-        private void RotateHorisontal(Point[] pList)
+        private void RotateHorisontal()
         {
-            for (int i = 0; i < pList.Length - 1; i++)
+            for (int i = 0; i < Points.Length - 1; i++)
             {
-                pList[i].Y = pList[0].Y;
-                pList[i].X = pList[0].X + i;
+                Points[i].Y = Points[0].Y;
+                Points[i].X = Points[0].X + i;
             }
-            pList[3].Y = pList[2].Y - 1;
-            pList[3].X = pList[2].X;
+            Points[3].Y = Points[2].Y - 1;
+            Points[3].X = Points[2].X;
         }
     }
 }
