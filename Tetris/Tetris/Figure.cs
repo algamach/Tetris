@@ -19,26 +19,43 @@
                 p.Hide();
             }
         }
-        public abstract void Rotate(Point[] pList);
+        public abstract void Rotate();
 
         internal Result TryMove(Direction dir)
         {
             Hide();
-            var clone = Clone();
-            Move(clone, dir);
 
-            var result = VerifyPosition(clone);
-            if (result == Result.SUCCESS)
-                Points = clone;
+            Move(dir);
+
+            var result = VerifyPosition();
+            if (result != Result.SUCCESS)
+                Move(Reverse(dir));
 
             Draw();
 
             return result;
         }
 
-        private Result VerifyPosition(Point[] newPoints)
+        private Direction Reverse(Direction dir)
         {
-            foreach (var p in newPoints)
+            switch (dir)
+            {
+                case Direction.LEFT:
+                    return Direction.RIGHT;
+                case Direction.RIGHT:
+                    return Direction.LEFT;
+                case Direction.UP:
+                    return Direction.DOWN;
+                case Direction.DOWN:
+                    return Direction.UP;
+                default:
+                    return dir;
+            }
+        }
+
+        private Result VerifyPosition()
+        {
+            foreach (var p in Points)
             {
                 //in theory it shouldn't be here -1     
                 if (p.Y >= Field.Height - 1)
@@ -51,36 +68,31 @@
             return Result.SUCCESS;
         }
 
-        public void Move(Point[] pList, Direction dir)
+        public void Move(Direction dir)
         {
-            foreach (var p in pList)
+            foreach (var p in Points)
             {
                 p.Move(dir);
             }
         }
 
-        private Point[] Clone()
-        {
-            var newPonits = new Point[LENGTH];
-            for (int i = 0; i < LENGTH; i++)
-            {
-                newPonits[i] = new Point(Points[i]);
-            }
-            return newPonits;
-        }
-
         internal Result TryRotate()
         {
             Hide();
-            var clone = Clone();
-            Rotate(clone);
 
-            var result = VerifyPosition(clone);
-            if (result == Result.SUCCESS)
-                Points = clone;
+            Rotate();
+
+            var result = VerifyPosition();
+            if (result != Result.SUCCESS)
+                Rotate();
 
             Draw();
             return result;
+        }
+
+        internal bool IsOnTop()
+        {
+            return Points[0].Y == 0;
         }
     }
 }
