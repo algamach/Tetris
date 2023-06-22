@@ -40,8 +40,18 @@ namespace Tetris
 			{
 				Field.AddFigure(currentFigure);
 				Field.TryDeleteLines();
-				currentFigure = generator.GetNewFigure();
-				return true;
+
+				if (currentFigure.IsOnTop())
+				{
+					WriteGameOver();
+					timer.Elapsed -= OnTimedEvent;
+					return true;
+				}
+				else
+				{
+					currentFigure = generator.GetNewFigure();
+					return true;
+				}
 			}
 			else
 			{
@@ -49,7 +59,13 @@ namespace Tetris
 			}
 		}
 
-		private static Result HandleKey(Figure f, ConsoleKey key)
+        private static void WriteGameOver()
+        {
+			Console.SetCursorPosition(Field.Width/2-8, Field.Height/2);
+			Console.WriteLine("G A M E  O V E R");
+        }
+
+        private static Result HandleKey(Figure f, ConsoleKey key)
 		{
 			switch (key)
 			{
@@ -68,21 +84,21 @@ namespace Tetris
 			return Result.SUCCESS;
 		}
 		private static void SetTimer()
-        {
-            // Create a timer with a two second interval.
-            timer = new System.Timers.Timer(TIMER_INTERVAL);
-            // Hook up the Elapsed event for the timer. 
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-            timer.Enabled = true;
-        }
+		{
+			// Create a timer with a two second interval.
+			timer = new System.Timers.Timer(TIMER_INTERVAL);
+			// Hook up the Elapsed event for the timer. 
+			timer.Elapsed += OnTimedEvent;
+			timer.AutoReset = true;
+			timer.Enabled = true;
+		}
 
-        private static void OnTimedEvent(object? sender, ElapsedEventArgs e)
-        {
-            Monitor.Enter(_lockObject);
-            var result = currentFigure.TryMove(Direction.DOWN);
+		private static void OnTimedEvent(object? sender, ElapsedEventArgs e)
+		{
+			Monitor.Enter(_lockObject);
+			var result = currentFigure.TryMove(Direction.DOWN);
 			ProcessResult(result, ref currentFigure);
-            Monitor.Exit(_lockObject);
-        }
-    }
+			Monitor.Exit(_lockObject);
+		}
+	}
 }
